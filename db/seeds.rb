@@ -24,15 +24,24 @@ puts "3 Users created"
 puts 'creating vehicle for each user...'
 [erika, jose, aaron].each do |user|
   puts "creating 3 vehicles for #{user.first_name}"
-  Vehicle.new(vehicle_type: 'coupe', seats: 2, price: 1000,
+  Vehicle.create(vehicle_type: 'coupe', seats: 2, price: 1000,
               description: "lorem ipsum dolor", user: user)
 
-  Vehicle.new(vehicle_type: 'sedan', seats: 4, price: 2000,
+  Vehicle.create(vehicle_type: 'sedan', seats: 4, price: 2000,
               description: "lorem ipsum dolor", user: user)
 
-  Vehicle.new(vehicle_type: 'bus', seats: 15, price: 2500,
+  Vehicle.create(vehicle_type: 'bus', seats: 15, price: 2500,
               description: "lorem ipsum dolor", user: user)
 end
 puts 'all vehicles created'
 
-puts 'creating rents for each vehicle'
+puts 'creating rents for vehicles'
+[erika, jose, aaron].each do |owner|
+  not_owner = [erika, jose, aaron].reject { |user| user = owner }
+  owner.vehicles.each do vehicle
+    Rent.create(vehicle: vehicle, user: not_owner.sample,
+                start_date: "20240228", end_date: "20240328",
+                price: vehicle.price)
+  end
+end
+puts 'all rents created'

@@ -1,2 +1,7 @@
-<h1>Rents#show</h1>
-<p>Find me in app/views/rents/show.html.erb</p>
+<h1>Rental Details</h1>
+
+<p><strong>Vehicle:</strong> <%= @rent.vehicle.name %></p>
+<p><strong>Start Date:</strong> <%= @rent.start_date %></p>
+<p><strong>End Date:</strong> <%= @rent.end_date %></p>
+
+<%= link_to "Back to My Rents", rents_path %>

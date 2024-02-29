@@ -1,5 +1,5 @@
 class RentsController < ApplicationController
-  before_action :set_rent, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:index, :new, :create]
 
   def index
     @rents = current_user.rents
@@ -39,7 +39,7 @@ class RentsController < ApplicationController
   private
 
   def set_vehicle
-    @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicle = Vehicle.find(params[:vehicle_id]) if params[:vehicle_id].present?
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, alert: 'Vehículo no encontrado.'
   end

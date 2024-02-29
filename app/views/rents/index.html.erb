@@ -1,18 +1,13 @@
 <h1>All Rents</h1>
 
-<ul>
-  <% @rents.each do |rent| %>
-    <li>
-      <strong>Vehicle:</strong> <%= "#{rent.vehicle.make} #{rent.vehicle.model}" %><br>
-      <strong>User:</strong> <%= rent.user.full_name %><br>
-      <strong>Start Date:</strong> <%= rent.start_date %><br>
-      <strong>End Date:</strong> <%= rent.end_date %><br>
-      <strong>Price:</strong> $<%= rent.price %><br>
-      <%= link_to "View", rent %>
-      <%= link_to "Edit", edit_rent_path(rent) %>
-      <%= link_to "Delete", rent, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+<% @rents.each do |rent| %>
+  <li class="rent-item">
+    <strong>Vehicle:</strong> <%= "#{rent.vehicle.make} #{rent.vehicle.model}" %><br>
+    <strong>User:</strong> <%= rent.user.nickname %><br>
+    <strong>Start Date:</strong> <%= rent.start_date %><br>
+    <strong>End Date:</strong> <%= rent.end_date %><br>
+    <strong>Price:</strong> $<%= rent.price %><br>
+  </li>
+<% end %>
 
 <%= link_to "New Rent", new_rent_path %>

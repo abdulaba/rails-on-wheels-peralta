@@ -1,13 +1,23 @@
-<h1>All Rents</h1>
+<div class="container mt-5">
+  <h1 class="mb-4">Mis rentas</h1>
 
-<% @rents.each do |rent| %>
-  <li class="rent-item">
-    <strong>Vehicle:</strong> <%= "#{rent.vehicle.make} #{rent.vehicle.model}" %><br>
-    <strong>User:</strong> <%= rent.user.nickname %><br>
-    <strong>Start Date:</strong> <%= rent.start_date %><br>
-    <strong>End Date:</strong> <%= rent.end_date %><br>
-    <strong>Price:</strong> $<%= rent.price %><br>
-  </li>
-<% end %>
-
-<%= link_to "New Rent", new_rent_path %>
+  <div class="list-group">
+    <% @rents.each do |rent| %>
+      <div class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= "#{rent.vehicle.make} #{rent.vehicle.model}" %></h5>
+          <small><%= rent.start_date %> to <%= rent.end_date %></small>
+        </div>
+        <p class="mb-1">
+          <strong>User:</strong> <%= rent.user.nickname %> |
+          <strong>Price:</strong> $<%= rent.price %>
+        </p>
+        <div class="d-flex justify-content-end">
+          <%= link_to "View Details", rent, class: "btn btn-sm btn-outline-primary me-2" %>
+          <%= link_to "Edit", edit_rent_path(rent), class: "btn btn-sm btn-outline-secondary me-2" %>
+          <%= link_to "Delete", rent, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

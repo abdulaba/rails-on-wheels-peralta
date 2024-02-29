@@ -14,6 +14,14 @@
 # jose
 # https://avatars.githubusercontent.com/u/64025392?v=4
 
+# erika
+# https://avatars.githubusercontent.com/u/156470596?v=4
+require 'open-uri'
+
+aaron_photo = URI.open("https://avatars.githubusercontent.com/u/87042274?v=4")
+jose_photo =  URI.open("https://avatars.githubusercontent.com/u/64025392?v=4")
+erika_photo = URI.open("https://avatars.githubusercontent.com/u/156470596?v=4")
+
 puts "Creating users..."
 
 erika = User.create(email: "erika.azuaje2014@gmail.com", password: "Patico2014",

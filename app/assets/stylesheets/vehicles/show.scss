@@ -1,3 +1,17 @@
 #vehicle_carousel {
-  height: 600px
+  height: 400px;
+}
+
+.carousel-button {
+  background-color: transparent;
+  border: none;
+  transition: background .2s;
+}
+
+.carousel-button:hover {
+  background: linear-gradient(90deg, rgba(254,254,254,0) 63%, rgba(0,0,0,0.6) 100%);
+}
+
+.disclaimer {
+  font-size: 14px;
 }

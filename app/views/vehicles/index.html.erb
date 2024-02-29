@@ -7,8 +7,8 @@
       <% @vehicles.each do |vehicle| %>
         <div class="col-4">
           <%= link_to vehicle_path(vehicle), class: "text-decoration-none text-black" do%>
-            <div class="mb-3 p-2 shadow rounded-4 card-vehicle">
-              <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover rounded-top-4" %>
+            <div class="mb-3 p-2 shadow card-vehicle">
+              <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover" %>
               <div class="">
                 <h3 class="fs-5 fw-bold text-truncate"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
                 <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>

@@ -1,8 +1,8 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <div id="vehicle_carousel" class="carousel slide p-3">
-        <div class="carousel-inner">
+      <div id="vehicle_carousel" class="carousel slide d-flex align-items center">
+        <div class="carousel-inner d-flex align-items-center">
           <div class="carousel-item active">
             <img src="https://1.bp.blogspot.com/-NYTuyZpJM4Q/T7-_weFK2II/AAAAAAAAAIg/JfHOAwQuUXM/s1600/2013%2Bf.jpg" class="d-block w-100" alt="...">
           </div>
@@ -13,19 +13,29 @@
             <img src="https://th.bing.com/th/id/OIP.5kxasAx09PcpBXxywTpsqAHaEo?w=2560&h=1600&rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#vehicle_carousel" data-bs-slide="prev">
+        <button class="carousel-button-prev position-absolute start-0 h-100 bg-transparent border-0" type="button" data-bs-target="#vehicle_carousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#vehicle_carousel" data-bs-slide="next">
+        <button class="carousel-button-next position-absolute end-0 h-100 bg-transparent border-0" type="button" data-bs-target="#vehicle_carousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     </div>
-    <div class="col">
+    <div class="col position-relative">
       <div class="p-3">
-        <%= link_to "RENTAR", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold" %>
+        <h3 class="fw-bold"><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
+        <p class="m-0 p-0 fs-5"><span class="fw-bold">$<%= @vehicle.price %></span> per day</p>
+        <h4 class="mt-3">Vehicle description</h4>
+        <p><%= @vehicle.description %></p>
+        <p class="m-0 p-0"><span class="text-secondary">Seats:</span> <%= @vehicle.seats %></p>
+        <p class="m-0 p-0"><span class="text-secondary">Owner:</span> <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %> (<span class="fw-bold"><%= @vehicle.user.nickname %></span>)</p>
+        <p>
+        <div class=" position-absolute bottom-0 w-100">
+          <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts de rent.</p>
+          <%= link_to "RENTAR", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100" %>
+        </div>
       </div>
     </div>
   </div>

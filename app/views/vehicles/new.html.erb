@@ -1,2 +1,13 @@
-<h1>Vehicles#new</h1>
-<p>Find me in app/views/vehicles/new.html.erb</p>
+<div class="container mt-3 mb-5">
+  <%= simple_form_for @vehicle do |f| %>
+    <%= f.input :make %>
+    <%= f.input :model %>
+    <%= f.input :year %>
+    <%= f.input :price %>
+    <%= f.input :seats %>
+    <%= f.input :description %>
+    <%= f.input :vehicle_type %>
+    <%= f.input :photos, as: :file %>
+    <%= f.submit value: "Publish vehicle"%>
+  <% end %>
+</div>

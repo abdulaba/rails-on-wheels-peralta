@@ -5,17 +5,19 @@
     </div>
     <div class="row col-9">
       <% @vehicles.each do |vehicle| %>
-        <%= link_to model do%>
-          <div class="mb-3 p-2 shadow col-4">
-            <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover" %>
-            <div class="mx-2">
-              <h3 class="fs-4"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
-              <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
-              <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= vehicle.price %></span></p>
-              <p><i class="fa-solid fa-user"></i> <%= vehicle.user.nickname %></p>
+        <div class="col-4">
+          <%= link_to vehicle_path(vehicle), class: "text-decoration-none text-black" do%>
+            <div class="mb-3 p-2 shadow">
+              <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover" %>
+              <div class="mx-2">
+                <h3 class="fs-4"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
+                <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
+                <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= vehicle.price %></span></p>
+                <p><i class="fa-solid fa-user"></i> <%= vehicle.user.nickname %></p>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

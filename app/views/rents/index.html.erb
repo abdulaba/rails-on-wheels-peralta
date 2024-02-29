@@ -1,2 +1,20 @@
-<h1>Rents#index</h1>
-<p>Find me in app/views/rents/index.html.erb</p>
+<h1>All Rents</h1>
+
+<ul class="rents-list">
+  <% @rents.each do |rent| %>
+    <li class="rent-item">
+      <strong>Vehicle:</strong> <%= rent.vehicle.make %> <%= rent.vehicle.model %><br>
+      <strong>User:</strong> <%= rent.user.full_name %><br>
+      <strong>Start Date:</strong> <%= rent.start_date %><br>
+      <strong>End Date:</strong> <%= rent.end_date %><br>
+      <strong>Price:</strong> $<%= rent.price %><br>
+      <div class="actions">
+        <%= link_to "View", rent_path(rent) %>
+        <%= link_to "Edit", edit_rent_path(rent) %>
+        <%= link_to "Delete", rent_path(rent), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Rent", new_rent_path %>

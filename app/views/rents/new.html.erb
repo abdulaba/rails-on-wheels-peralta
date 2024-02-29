@@ -1,2 +1,22 @@
-<h1>Rents#new</h1>
-<p>Find me in app/views/rents/new.html.erb</p>
+<h1>New Rent for <%= @vehicle.make %> <%= @vehicle.model %></h1>
+
+<%= simple_form_for [@vehicle, @rent] do |form| %>
+  <div class="form-container">
+    <%= form.input :start_date, as: :string, input_html: { class: 'datepicker' } %>
+    <%= form.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
+    <%= form.input :price %>
+    <%= form.button :submit, "Create Rent", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Vehicle", @vehicle %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    $('.datepicker').datepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      todayHighlight: true
+    });
+  });
+</script>

@@ -1,0 +1,9 @@
+<%= form_with(model: @rent, local: true) do |form| %>
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+
+  <%= form.submit %>
+<% end %>

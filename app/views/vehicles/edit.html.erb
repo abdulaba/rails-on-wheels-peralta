@@ -1,2 +1,8 @@
-<h1>Vehicles#edit</h1>
-<p>Find me in app/views/vehicles/edit.html.erb</p>
+<div class="container mt-3 mb-5">
+  <%= simple_form_for @vehicle do |f| %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :vehicle_type %>
+    <%= f.submit value: "Edit vehicle"%>
+  <% end %>
+</div>

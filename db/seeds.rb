@@ -8,14 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# aaron
-# https://avatars.githubusercontent.com/u/87042274?v=4
-
-# jose
-# https://avatars.githubusercontent.com/u/64025392?v=4
-
-# erika
-# https://avatars.githubusercontent.com/u/156470596?v=4
 require 'open-uri'
 
 aaron_photo = URI.open("https://avatars.githubusercontent.com/u/87042274?v=4")
@@ -27,26 +19,33 @@ puts "Creating users..."
 erika = User.create(email: "erika.azuaje2014@gmail.com", password: "Patico2014",
   first_name: "Erika", last_name: "Azuaje", nickname: "PaticoAzuaje")
 
+erika.photo.attach(io: erika_photo, filename: "Erikaphoto", content_type: "image/png")
+
 jose = User.create(email: "joseperalta2910@gmail.com", password: "123456",
   first_name: "Jose", last_name: "Peralta", nickname: "Kronorit")
+
+jose.photo.attach(io: jose_photo, filename: "Josephoto", content_type: "image/png")
 
 aaron = User.create(email: "aarondlista@gmail.com", password: "holamundo2",
   first_name: "Aaron", last_name: "Azuaje", nickname: "PaticoAzuaje")
 
+aaron.photo.attach(io: aaron_photo, filename: "Aaronphoto", content_type: "image/png")
+
 puts "3 Users created"
 
 puts 'creating vehicle for each user...'
+
 [erika, jose, aaron].each do |user|
   puts "creating 3 vehicles for #{user.first_name}"
-  Vehicle.create(vehicle_type: 'coupe', seats: 2, price: 1000,
+  vehicle1 = Vehicle.create(vehicle_type: 'coupe', seats: 2, price: 1000,
               description: "lorem ipsum dolor", make: "Toyota",
               model: "Corolla", user: user, year: 2010)
 
-  Vehicle.create(vehicle_type: 'sedan', seats: 4, price: 2000,
+  vehicle2 = Vehicle.create(vehicle_type: 'sedan', seats: 4, price: 2000,
                 description: "lorem ipsum dolor", make: "Chevrolet",
                 model: "Optra", user: user, year: 2010)
 
-  Vehicle.create(vehicle_type: 'bus', seats: 15, price: 2500,
+  vehicle3 = Vehicle.create(vehicle_type: 'bus', seats: 15, price: 2500,
               description: "lorem ipsum dolor", make: "Jeep",
               model: "Cherokee", user: user, year: 2010)
 end

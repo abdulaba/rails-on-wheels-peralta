@@ -1,7 +1,27 @@
-<h1>Detalles de la Renta</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4">Detalles de Renta</h2>
 
-<p>Renta ID: <%= @rent.id %></p>
-<p>Fecha de Inicio: <%= @rent.start_date %></p>
-<p>Fecha de Fin: <%= @rent.end_date %></p>
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://st1.uvnimg.com/d4/4a/006304a74db4902c0b4d8d8026c8/chevrolet-corvette-c8-stingray-2020-1280-08.jpg" class="card-img-top img-fluid" alt="Vehicle Image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="mb-2">Fecha de inicio de renta: <%= @rent.start_date %></p>
+              <p class="mb-2">Fecha de vencimiento de renta: <%= @rent.end_date %></p>
 
-<%= link_to "Volver a la lista de rentas", rents_path %>
+               <h5 class="mt-4 mb-2">Datos del Dueño</h5>
+              <p class="mb-2">Nombre del dueño: <%= @rent.user.first_name %> <%= @rent.user.last_name %></p>
+              <p class="mb-2">Correo: <%= @rent.user.email %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= link_to "Volver Lista de Rentas", rents_path, class: "btn btn-secondary btn-sm float-end mt-3" %>
+    </div>
+  </div>
+</div>

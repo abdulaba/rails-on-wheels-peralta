@@ -2,6 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
+        <div class="card-header">
+          <%# cl_image_tag @vehicle.photos[0].key %>
+        </div>
         <div class="card-body">
           <%= form_with(model: [@vehicle, @rent], method: :post, local: true) do |form| %>
             <div class="mb-3">

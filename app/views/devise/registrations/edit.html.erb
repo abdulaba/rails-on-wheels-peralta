@@ -2,7 +2,12 @@
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
     <div class="row">
       <div class="col-6">
-        <%= cl_image_tag current_user.photo.key, class: "avatar-xl", id: "user-avatar" %>
+        <div class="avatar-xl d-flex justify-content-center align-items-center"
+          style="background-image: url(<%= cl_image_path current_user.photo.key if current_user.photo.attached?%>)"
+        >
+          <i class="fa-solid fa-pen fs-1" id="user-avatar"></i>
+        </div>
+        <%# cl_image_tag current_user.photo.key%>
       </div>
       <div class="col-6">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

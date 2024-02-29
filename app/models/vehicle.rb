@@ -1,5 +1,5 @@
 class Vehicle < ApplicationRecord
-  has_many :rents
+  has_many :rents, dependent: :destroy
   belongs_to :user
 
   # vehicles images

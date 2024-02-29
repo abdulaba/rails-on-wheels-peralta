@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: %i[show edit update]
+  before_action :set_vehicle, only: %i[show edit update destroy]
   def index
     @vehicles = Vehicle.all
   end
@@ -25,7 +25,9 @@ class VehiclesController < ApplicationController
     redirect_to vehicle_path(@vehicle)
   end
 
-  def delete
+  def destroy
+    @vehicle.destroy
+    redirect_to vehicles_path
   end
 
   private

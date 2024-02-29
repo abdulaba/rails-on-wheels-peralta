@@ -1,6 +1,5 @@
 <div class="container my-5">
-  <div class="row">
-
+  <div class="row shadow bg-3">
     <div class="col">
       <div id="vehicle_carousel" class="carousel slide d-flex align-items center">
         <div class="carousel-inner d-flex align-items-center">
@@ -26,7 +25,7 @@
     </div>
 
     <div class="col position-relative">
-      <div class="p-3">
+      <div class="p-3 position-relative h-100">
         <h3 class="fw-bold"><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
         <p class="m-0 p-0 fs-5"><span class="fw-bold">$<%= @vehicle.price %></span> per day</p>
         <h4 class="mt-3">Vehicle description</h4>
@@ -35,15 +34,15 @@
         <p class="m-0 p-0"><span class="text-secondary">Owner:</span> <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %> (<span class="fw-bold"><%= @vehicle.user.nickname %></span>)</p>
 
         <% if current_user == @vehicle.user %>
-          <div class="position-absolute bottom-0 w-100 d-flex justify-content-between">
-            <%= link_to "Edit information", edit_vehicle_path(@vehicle), class: "btn btn-success text-white fw-bold p-2 rounded-4" %>
-            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "btn btn-primary text-white fw-bold p-2 rounded-4" %>
-            <%= link_to "Delete vehicle", vehicles_path, class: "btn btn-danger text-white fw-bold p-2 rounded-4" %>
+          <%= link_to "", edit_vehicle_path(@vehicle), class: "p-2 text-decoration-none fa-solid fa-pencil text-warning" %>
+          <%= link_to "", vehicle_path(@vehicle), class: "text-decoration-none text-danger fa-solid fa-trash", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <div class="position-absolute bottom-0 w-100 pe-4 pb-3">
+            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "btn btn-primary text-white fw-bold p-2 rounded-4 w-100" %>
           </div>
         <% else %>
-          <div class=" position-absolute bottom-0 w-100">
+          <div class=" position-absolute bottom-0 w-100 pe-4 pb-3">
             <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts the rent.</p>
-            <%= link_to "RENTAR", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100" %>
+            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100 rounded-4" %>
           </div>
         <% end %>
       </div>

@@ -1,13 +1,22 @@
 <div class="container mt-3 mb-5">
-  <% @vehicles.each do |vehicle| %>
-    <div class="d-flex w-100 mb-3">
-      <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", width: 200, height: 100, class: "object-fit-cover" %>
-      <div class="mx-2">
-        <h3 class="fs-4"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %> with <%= vehicle.seats %> seats</h3>
-        <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
-        <p class="text-secondary p-0 m-0">Price: <span class="text-black">$<%= vehicle.price %></span></p>
-        <p><i class="fa-solid fa-user"></i> <%= vehicle.user.nickname %></p>
-      </div>
+  <div class="row">
+    <div class="col-3">
+      <h3>Filter</h3>
     </div>
-  <% end %>
+    <div class="row col-9">
+      <% @vehicles.each do |vehicle| %>
+        <%= link_to model do%>
+          <div class="mb-3 p-2 shadow col-4">
+            <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover" %>
+            <div class="mx-2">
+              <h3 class="fs-4"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
+              <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
+              <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= vehicle.price %></span></p>
+              <p><i class="fa-solid fa-user"></i> <%= vehicle.user.nickname %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

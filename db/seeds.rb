@@ -8,6 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# aaron
+# https://avatars.githubusercontent.com/u/87042274?v=4
+
+# jose
+# https://avatars.githubusercontent.com/u/64025392?v=4
+
 puts "Creating users..."
 
 erika = User.create(email: "erika.azuaje2014@gmail.com", password: "Patico2014",

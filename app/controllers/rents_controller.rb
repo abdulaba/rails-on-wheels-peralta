@@ -29,16 +29,11 @@ class RentsController < ApplicationController
   end
 
   def update
-    if @rent.update(rent_params)
-      redirect_to rents_url, notice: 'Renta actualizada exitosamente.'
-    else
-      render :edit
-    end
   end
 
   def destroy
+    @rent = Rent.find(params[:id])
     @rent.destroy
-    redirect_to rents_url, notice: 'Renta eliminada exitosamente.'
   end
 
   private

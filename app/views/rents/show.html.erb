@@ -1,27 +1,49 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h2 class="mb-4">Detalles de Renta</h2>
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div id="
 
-      <div class="card">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://st1.uvnimg.com/d4/4a/006304a74db4902c0b4d8d8026c8/chevrolet-corvette-c8-stingray-2020-1280-08.jpg" class="card-img-top img-fluid" alt="Vehicle Image">
+      " class="carousel slide d-flex align-items-center" data-bs-ride="carousel">
+        <div class="carousel-inner d-flex align-items-center">
+          <div class="carousel-item active">
+            <img src="https://1.bp.blogspot.com/-NYTuyZpJM4Q/T7-_weFK2II/AAAAAAAAAIg/JfHOAwQuUXM/s1600/2013%2Bf.jpg" class="d-block w-100" alt="...">
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <p class="mb-2">Fecha de inicio de renta: <%= @rent.start_date %></p>
-              <p class="mb-2">Fecha de vencimiento de renta: <%= @rent.end_date %></p>
+          <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/OIP.ZZf-7o5dlW_7TF5brWvIhAHaE8?rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/OIP.5kxasAx09PcpBXxywTpsqAHaEo?w=2560&h=1600&rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-button-prev position-absolute start-0 h-100 bg-transparent border-0" type="button" data-bs-target="#rent_carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-button-next position-absolute end-0 h-100 bg-transparent border-0" type="button" data-bs-target="#rent_carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+   <div class="col position-relative">
+      <div class="p-3">
+              <h3 class="fw-bold">Detalles de Renta</h3>
 
-               <h5 class="mt-4 mb-2">Datos del Dueño</h5>
-              <p class="mb-2">Nombre del dueño: <%= @rent.user.first_name %> <%= @rent.user.last_name %></p>
-              <p class="mb-2">Correo: <%= @rent.user.email %></p>
+              <h5 class="m-0 p-0 fs-5">Duracion de la renta</h5>
+                      <p class="mt-3">fecha de inicio: <span class="fw-bold"><%= @rent.start_date %></span> fecha de entrega: <span class="fw-bold"><%= @rent.end_date %></span></p>
+
+          <div class="row g-0">
+            <div class="col-md-8">
+
+              <h3 class="fw-bold">Datos del Dueño</h3>
+                <p class="mb-2">Nombre del dueño: <span class="fw-bold"><%= @rent.user.first_name %> <%= @rent.user.last_name %></span></p>
+                <p class="mb-2">Correo: <span class="fw-bold"><%= @rent.user.email %></span></p>
             </div>
           </div>
         </div>
+                <div class=" position-absolute bottom-0 w-100">
+        <%= link_to "Volver Lista de Rentas", rents_path, class: "btn btn-primary fw-bold w-100" %>
+        </div>
       </div>
-
-      <%= link_to "Volver Lista de Rentas", rents_path, class: "btn btn-secondary btn-sm float-end mt-3" %>
     </div>
   </div>
-</div>

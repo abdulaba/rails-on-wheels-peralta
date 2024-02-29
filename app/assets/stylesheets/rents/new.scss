@@ -1,0 +1,32 @@
+$card_rounded: 8px;
+
+.card-rents {
+  background-color: white;
+  border-radius: $card_rounded;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .card-img-top {
+    border-radius: $card_rounded $card_rounded 0 0;
+    height: 100%;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+
+  }
+}
+
+.button-new {
+  margin-top: 1.5rem;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,11 @@
+.card-vehicle {
+  transition: transform .2s;
+}
+
+.card-vehicle:hover {
+  transform: scale(1.1);
+}
+
+.user-icon {
+  font-size: 12px;
+}

@@ -3,17 +3,17 @@
     <div class="col-3">
       <h3>Filter</h3>
     </div>
-    <div class="row col-9">
+    <div class="row col-9 d-flex">
       <% @vehicles.each do |vehicle| %>
         <div class="col-4">
           <%= link_to vehicle_path(vehicle), class: "text-decoration-none text-black" do%>
-            <div class="mb-3 p-2 shadow">
-              <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover" %>
-              <div class="mx-2">
-                <h3 class="fs-4"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
+            <div class="mb-3 p-2 shadow rounded-4 card-vehicle">
+              <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height:150, class: "w-100 object-fit-cover rounded-top-4" %>
+              <div class="">
+                <h3 class="fs-5 fw-bold text-truncate"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
                 <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
                 <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= vehicle.price %></span></p>
-                <p><i class="fa-solid fa-user"></i> <%= vehicle.user.nickname %></p>
+                <p><i class="fa-solid fa-user user-icon"></i> <%= vehicle.user.nickname %></p>
               </div>
             </div>
           <% end %>

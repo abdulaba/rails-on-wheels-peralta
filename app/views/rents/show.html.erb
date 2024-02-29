@@ -1,2 +1,7 @@
-<h1>Rents#show</h1>
-<p>Find me in app/views/rents/show.html.erb</p>
+<h1>Detalles de la Renta</h1>
+
+<p>Renta ID: <%= @rent.id %></p>
+<p>Fecha de Inicio: <%= @rent.start_date %></p>
+<p>Fecha de Fin: <%= @rent.end_date %></p>
+
+<%= link_to "Volver a la lista de rentas", rents_path %>

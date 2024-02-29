@@ -1,7 +1,7 @@
-<h1>Rental Details</h1>
+<h1>Detalles de la Renta</h1>
 
-<p><strong>Vehicle:</strong> <%= @rent.vehicle.name %></p>
-<p><strong>Start Date:</strong> <%= @rent.start_date %></p>
-<p><strong>End Date:</strong> <%= @rent.end_date %></p>
+<p>Renta ID: <%= @rent.id %></p>
+<p>Fecha de Inicio: <%= @rent.start_date %></p>
+<p>Fecha de Fin: <%= @rent.end_date %></p>
 
-<%= link_to "Back to My Rents", rents_path %>
+<%= link_to "Volver a la lista de rentas", rents_path %>

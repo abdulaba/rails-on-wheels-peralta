@@ -12,7 +12,7 @@ class Vehicle < ApplicationRecord
   validates :description, length: { minimum: 50, maximum: 120 }
   validates :make, :model, length: { maximum: 50 }
   validates :year, comparison: {
-    greater_than_or_equal_to: 1960, message: "should be a year older than 1960",
+    greater_than_or_equal_to: 1960, message: "should be older than 1960",
     less_than_or_equal_to: Date.today.year
   }
   validates :vehicle_type, inclusion: { in: ["coupe", "sedan", "suv", "motorbike", "rv", "van", "bus"] }

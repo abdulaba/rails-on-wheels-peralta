@@ -1,5 +1,6 @@
 <div class="container my-5">
   <div class="row">
+
     <div class="col">
       <div id="vehicle_carousel" class="carousel slide d-flex align-items center">
         <div class="carousel-inner d-flex align-items-center">
@@ -23,6 +24,7 @@
         </button>
       </div>
     </div>
+
     <div class="col position-relative">
       <div class="p-3">
         <h3 class="fw-bold"><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
@@ -31,12 +33,22 @@
         <p><%= @vehicle.description %></p>
         <p class="m-0 p-0"><span class="text-secondary">Seats:</span> <%= @vehicle.seats %></p>
         <p class="m-0 p-0"><span class="text-secondary">Owner:</span> <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %> (<span class="fw-bold"><%= @vehicle.user.nickname %></span>)</p>
-        <p>
-        <div class=" position-absolute bottom-0 w-100">
-          <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts de rent.</p>
-          <%= link_to "RENTAR", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100" %>
-        </div>
+
+        <% if current_user == @vehicle.user %>
+          <div class="position-absolute bottom-0 w-100 d-flex justify-content-between">
+            <%= link_to "Edit information", edit_vehicle_path(@vehicle), class: "btn btn-success text-white fw-bold p-2 rounded-4" %>
+            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "btn btn-primary text-white fw-bold p-2 rounded-4" %>
+            <%= link_to "Delete vehicle", vehicles_path, class: "btn btn-danger text-white fw-bold p-2 rounded-4" %>
+          </div>
+        <% else %>
+          <div class=" position-absolute bottom-0 w-100">
+            <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts the rent.</p>
+            <%= link_to "RENTAR", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+
+
 </div>

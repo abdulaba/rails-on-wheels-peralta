@@ -27,7 +27,7 @@ jose = User.create(email: "joseperalta2910@gmail.com", password: "123456",
 jose.photo.attach(io: jose_photo, filename: "Josephoto", content_type: "image/png")
 
 aaron = User.create(email: "aarondlista@gmail.com", password: "holamundo2",
-  first_name: "Aaron", last_name: "Azuaje", nickname: "PaticoAzuaje")
+  first_name: "Aaron", last_name: "Lista", nickname: "MotoMoto")
 
 aaron.photo.attach(io: aaron_photo, filename: "Aaronphoto", content_type: "image/png")
 

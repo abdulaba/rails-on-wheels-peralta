@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner' %>);">
+  <div class="container">
+    <h1>On Wheels es tu destino para encontrar el vehículo perfecto para cualquier ocasión</h1>
+    <p>Únete a nosotros en On Wheels y descubre la libertad de movimiento sin complicaciones.</p>
+     <%= link_to "¡Comienza tu viaje hoy mismo!", "#", class: "p-2 banner-button "%>
+  </div>
+</div>
+<div class="container w-100">
+  <div class="row d-flex mt-5">
+      <% @vehicles.each do |vehicle| %>
+        <div class="col-3">
+          <%= render "shared/vehicle_card", vehicle: vehicle%>
+        </div>
+      <% end %>
+    </div>
+</div>

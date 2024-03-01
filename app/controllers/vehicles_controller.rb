@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy rents]
+  skip_before_action :authenticate_user!, only: %i[show index]
+
   def index
     @vehicles = Vehicle.all
   end
@@ -25,8 +27,11 @@ class VehiclesController < ApplicationController
   end
 
   def update
-    @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    if @vehicle.update(vehicle_params)
+      redirect_to vehicle_path(@vehicle)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

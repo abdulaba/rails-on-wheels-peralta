@@ -1,3 +1,5 @@
+$main-color: #31081F;
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -10,7 +12,5 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "vehicles/card-vehicle";
-@import "vehicles/vehicle-detail";
 @import "rents/show";
 @import "rents/new";

@@ -20,9 +20,9 @@
               </div>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "my vehicles", "#", class: "dropdown-item" %>
-              <%= link_to "log out", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "My vehicles", my_vehicles_vehicles_path, class: "dropdown-item" %>
+              <%= link_to "Log Out", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,6 +9,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :vehicles do
+    collection do
+      get :my_vehicles, as: :my_vehicles
+    end
+
+    member do
+      get :rents
+    end
+
     resources :rents, only: %i[new create]
   end
   resources :rents, except: %i[new create]

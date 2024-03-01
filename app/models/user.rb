@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :nickname, presence: true, uniqueness: true
+  validates :phone_number, presence: true, format: { with: /\A(\+|0)\d*/ }
 end

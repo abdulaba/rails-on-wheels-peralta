@@ -4,6 +4,10 @@ class VehiclesController < ApplicationController
     @vehicles = Vehicle.all
   end
 
+  def my_vehicles
+    @vehicles = current_user.vehicles
+  end
+
   def show; end
 
   def new

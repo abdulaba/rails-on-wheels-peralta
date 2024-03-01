@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy rents]
+  skip_before_action :authenticate_user!, only: %i[show index]
+
   def index
     @vehicles = Vehicle.all
   end

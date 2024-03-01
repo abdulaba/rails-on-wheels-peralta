@@ -31,13 +31,16 @@
 
               <h5 class="m-0 p-0 fs-5">Duracion de la renta</h5>
                       <p class="mt-3">fecha de inicio: <span class="fw-bold"><%= @rent.start_date %></span> fecha de entrega: <span class="fw-bold"><%= @rent.end_date %></span></p>
+                      <p class="bt-3">cantidad de dias: <span class="fw-bold"><%= (@rent.end_date - @rent.start_date).to_i %></span></p>
+                      <p class="mt-3">precio total: <span class="fw-bold"><%= @rent.price %></span></p>
 
           <div class="row g-0">
             <div class="col-md-8">
 
               <h3 class="fw-bold">Datos del Dueño</h3>
-                <p class="mb-2">Nombre del dueño: <span class="fw-bold"><%= @rent.user.first_name %> <%= @rent.user.last_name %></span></p>
-                <p class="mb-2">Correo: <span class="fw-bold"><%= @rent.user.email %></span></p>
+                <p class="mb-2">Nombre del dueño: <span class="fw-bold"><%= @rent.vehicle.user.first_name %> <%= @rent.vehicle.user.last_name %></span></p>
+                <p class="mb-2">Correo: <span class="fw-bold"><%= @rent.vehicle.user.email %></span></p>
+                <p class="mb-2">Telefono: <span class="fw-bold"><%= @rent.vehicle.user.phone_number %></span></p>
             </div>
           </div>
         </div>

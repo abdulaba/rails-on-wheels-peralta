@@ -15,13 +15,14 @@ class RentsController < ApplicationController
 
   def create
     @rent = @vehicle.rents.new(rent_params)
-    @rent.price = @vehicle.price
+    days = @rent.end_date - @rent.start_date
+    @rent.price = days.to_i * @vehicle.price
     @rent.user = current_user
 
     if @rent.save
-      redirect_to rents_path, notice: 'Renta creada exitosamente.'
+      redirect_to rents_path(@rent), notice: 'Renta creada exitosamente.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

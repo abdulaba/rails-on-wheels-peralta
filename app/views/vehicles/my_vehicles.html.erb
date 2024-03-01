@@ -1,7 +1,8 @@
 <div class="container mt-3 mb-5">
   <div class="row">
     <div class="col-3">
-      <h3>Filter</h3>
+      <hr>
+      <%= link_to "Add vehicle", new_vehicle_path, class: "btn btn-success text-white fw-bold rounded w-100" %>
     </div>
     <div class="row col-9 d-flex">
       <% @vehicles.each do |vehicle| %>
@@ -19,6 +20,13 @@
                 <h3 class="fs-5 fw-bold text-truncate"><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></h3>
                 <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= vehicle.vehicle_type.capitalize %></span></p>
                 <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= vehicle.price %></span></p>
+                <div class="mt-3 bg-warning bg-opacity-25 d-inline-block py-1 px-3 rounded-pill">
+                  <p class="p-0 m-0"><%= vehicle.rents.count %> rentas</p>
+                </div>
+                <div class="mt-3">
+                  <%= link_to "Editar", edit_vehicle_path(vehicle), class: "btn btn-warning p-1 text-decoration-none text-white rounded-4" %>
+                  <%= link_to "Eliminar", vehicle_path(vehicle), class: "p-1 btn btn-danger text-decoration-none text-white rounded-4", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                </div>
               </div>
             </div>
           <% end %>

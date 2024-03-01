@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       get :my_vehicles, as: :my_vehicles
     end
 
+    member do
+      get :rents
+    end
+
     resources :rents, only: %i[new create]
   end
   resources :rents, except: %i[new create]

@@ -1,2 +1,13 @@
-<h1>Vehicles#new</h1>
-<p>Find me in app/views/vehicles/new.html.erb</p>
+<div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
+  <%= simple_form_for @vehicle do |f| %>
+    <%= f.input :make %>
+    <%= f.input :model %>
+    <%= f.input :year %>
+    <%= f.input :price %>
+    <%= f.input :seats %>
+    <%= f.input :description %>
+    <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["Suv", "suv"], ["Motorbike", "motorbike"], ["Rv", "rv"], ["Van", "van"], ["Bus", "bus"]] %>
+    <%= f.input :photos, as: :file %>
+    <%= f.submit value: "Publish vehicle", class: "btn btn-primary rounded-4 w-100 mt-3"%>
+  <% end %>
+</div>

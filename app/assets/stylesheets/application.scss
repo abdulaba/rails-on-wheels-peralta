@@ -14,3 +14,8 @@ $main-color: #31081F;
 @import "pages/index";
 @import "rents/show";
 @import "rents/new";
+
+body {
+  background-color: #222222;
+  color: white
+}

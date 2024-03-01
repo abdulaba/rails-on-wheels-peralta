@@ -1,13 +1,17 @@
 <div class="container mt-5">
   <div class="card-rents">
     <div class="row g-0">
-      <div class="col-md-6">
-        <%= cl_image_tag @vehicle.photos[0].key, class: "card-img-top h-100", alt: "Vehicle Image" %>
+      <div class="col-md-6 d-flex align-items-center">
+        <% if @vehicle.photos.attached? %>
+          <%= cl_image_tag @vehicle.photos[0].key, class: "d-block w-100" %>
+        <% else %>
+          <p class="text-secondary fst-italic position-absolute top-50 start-50 translate-middle text-center fs-3">No pictures available</p>
+        <% end %>
       </div>
       <div class="col-md-6">
         <div class="card-body">
-          <div class="mb-3">
-            <h3 class="card-title fw-bold mb-4">Rentar <%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
+          <div>
+            <h3 class="card-title fw-bold">Rentar <%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
 
             <p class="fs-6 fw-bold">Información del vehículo:</p>
             <p class="fs-6 text">Make: <%= @vehicle.make %></p>
@@ -30,3 +34,8 @@
   <%= form.submit "Rentar", class: "btn btn-primary btn-sm rounded-pill w-100" %>
 </div>
 <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>

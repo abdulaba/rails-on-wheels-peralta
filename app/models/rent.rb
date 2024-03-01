@@ -5,7 +5,6 @@ class Rent < ApplicationRecord
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_minor_start_date
 
   validates :vehicle, :user, :start_date, :end_date, :price, presence: true
-  validates :price, inclusion: { in: (1..10_000).to_a }
 
   def start_date_cannot_be_in_the_past
     errors.add(:start_date, "can't be in the past") if start_date.present? && start_date < Date.today

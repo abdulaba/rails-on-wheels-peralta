@@ -1,2 +1,8 @@
-<h1>Vehicles#edit</h1>
-<p>Find me in app/views/vehicles/edit.html.erb</p>
+<div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
+  <%= simple_form_for @vehicle do |f| %>
+    <%= f.input :price, hint: "Por favor inserta un precio $1 y $10,000", label: "Precio"%>
+    <%= f.input :description, hint: "Por favor ingresa una descripción entre 50 y 140 caracteres", label: "Descripción" %>
+    <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["SUV", "suv"], ["Motorbike", "motorbike"], ["RV", "rv"], ["Van", "van"], ["Bus", "bus"]], hint: "Escoge el tipo de vehículo", label: "Tipo de vehículo" %>
+    <%= f.submit value: "Editar vehículo", class: "btn btn-primary rounded-4"%>
+  <% end %>
+</div>

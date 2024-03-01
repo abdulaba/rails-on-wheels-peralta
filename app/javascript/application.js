@@ -3,3 +3,10 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+
+
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
+//= require_tree .

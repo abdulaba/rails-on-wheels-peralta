@@ -7,7 +7,7 @@
     <%= f.input :seats %>
     <%= f.input :description %>
     <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["Suv", "suv"], ["Motorbike", "motorbike"], ["Rv", "rv"], ["Van", "van"], ["Bus", "bus"]] %>
-    <%= f.input :photos, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit value: "Publish vehicle", class: "btn btn-primary rounded-4 w-100 mt-3"%>
   <% end %>
 </div>

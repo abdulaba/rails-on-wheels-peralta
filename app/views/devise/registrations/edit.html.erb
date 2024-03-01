@@ -65,10 +65,7 @@
 </div>
 
 <script>
-  const photo = document.querySelector("#user-avatar")
-  const photoInput = document.querySelector("#user-avatar-input")
-
-  photo.addEventListener("click", ()=> {
-    photoInput.click()
+  document.querySelector("#user-avatar").addEventListener("click", ()=> {
+    document.querySelector("#user-avatar-input").click()
   })
 </script>

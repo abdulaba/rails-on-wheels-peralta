@@ -2,7 +2,7 @@
   <div class="container">
     <h1>On Wheels es tu destino para encontrar el vehículo perfecto para cualquier ocasión</h1>
     <p>Únete a nosotros en On Wheels y descubre la libertad de movimiento sin complicaciones.</p>
-     <%= link_to "¡Comienza tu viaje hoy mismo!", "#", class: "p-2 banner-button "%>
+     <%= link_to "¡Comienza tu viaje hoy mismo!", new_user_session_path, class: "p-2 banner-button " unless user_signed_in?%>
   </div>
 </div>
 <div class="container w-100">

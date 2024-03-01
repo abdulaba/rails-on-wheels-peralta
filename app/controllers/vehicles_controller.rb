@@ -27,8 +27,11 @@ class VehiclesController < ApplicationController
   end
 
   def update
-    @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    if @vehicle.update(vehicle_params)
+      redirect_to vehicle_path(@vehicle)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

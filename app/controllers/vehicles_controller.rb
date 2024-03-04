@@ -28,7 +28,7 @@ class VehiclesController < ApplicationController
 
   def update
     if @vehicle.update(vehicle_params)
-      redirect_to vehicle_path(@vehicle)
+      redirect_to vehicle_path(@vehicle), notice: "Datos actualizados exitosamente"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class VehiclesController < ApplicationController
 
   def destroy
     @vehicle.destroy
-    redirect_to vehicles_path
+    redirect_to vehicles_path, notice: "Vehiculo borrado exitosamente"
   end
 
   def rents

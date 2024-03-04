@@ -4,20 +4,20 @@
   <div class="row">
     <% @rents.each do |rent| %>
       <div class="col-4">
-        <%= link_to rent_path(rent), class: "text-decoration-none text-black" do %>
-          <div class="mb-3 p-2 shadow card-vehicle">
-            <%= image_tag "https://th.bing.com/th/id/OIP.FxJBZ-aCHvFKtvK1IqbH8wHaEU?rs=1&pid=ImgDetMain", height: 150, class: "w-100 object-fit-cover" %>
-            <div class="">
-              <h3 class="fs-5 fw-bold text-truncate"><%= "#{rent.vehicle.make} #{rent.vehicle.model}" %></h3>
+        <%= link_to rent_path(rent), class: "text-decoration-none" do %>
+          <div class="mb-3 p-2 card-vehicle">
+            <% if rent.vehicle.photos.attached? %>
+              <%= cl_image_tag rent.vehicle.photos[0].key, class: "w-100 object-fit-cover", height:150 %>
+            <% else %>
+              <div class="position-relative image-placeholder w-100">
+                <p class="text-secondary fst-italic position-absolute top-50 start-50 translate-middle text-center">No pictures available</p>
+              </div>
+            <% end %>
+            <div class="px-3 pt-3">
+              <h3 class="fs-5 fw-bold text-truncate"><%= rent.vehicle.make %> <%= rent.vehicle.model %> <%= rent.vehicle.year %></h3>
               <p class="p-0 m-0"><span class="text-secondary">Vehicle type:</span> <span class="fw-light"><%= rent.vehicle.vehicle_type.capitalize %></span></p>
-              <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-black">$<%= rent.vehicle.price %></span></p>
+              <p class="text-secondary p-0 m-0">Price-per-day: <span class="text-white">$<%= rent.vehicle.price %></span></p>
               <p><i class="fa-solid fa-user user-icon"></i> <%= rent.user.nickname %></p>
-            </div>
-            <div class="d-flex justify-content-between mt-2">
-              <p class="m-0 fs-5"><span class="fw-bold">$<%= rent.price %></span> per day</p>
-              <div class="d-flex">
-              <%= link_to "Ver Detalles", rent, class: "btn btn-sm btn-info rounded-pill me-2" %>
-                </div>
             </div>
           </div>
         <% end %>

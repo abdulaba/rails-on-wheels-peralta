@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
-    @vehicle.save ? redirect_to(vehicle_path(@vehicle)) : render(:new, status: :unprocessable_entity)
+    @vehicle.save ? redirect_to(vehicle_path(@vehicle), notice: "Vehiculo Creado Exitosamente") : render(:new, status: :unprocessable_entity)
   end
 
   def edit
@@ -28,7 +28,7 @@ class VehiclesController < ApplicationController
 
   def update
     if @vehicle.update(vehicle_params)
-      redirect_to vehicle_path(@vehicle)
+      redirect_to vehicle_path(@vehicle), notice: "Datos Actualizados Correctamente"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class VehiclesController < ApplicationController
 
   def destroy
     @vehicle.destroy
-    redirect_to vehicles_path
+    redirect_to vehicles_path, notice: "Vehiculo eliminado!"
   end
 
   def rents

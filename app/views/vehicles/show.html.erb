@@ -44,7 +44,7 @@
         <% else %>
           <div class=" position-absolute bottom-0 w-100 pe-4 pb-3">
             <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts the rent.</p>
-            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100 rounded-4" %>
+            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100 rounded-4" if @vehicle.disponible? %>
           </div>
         <% end %>
       </div>

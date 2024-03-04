@@ -9,7 +9,7 @@
   <div class="row d-flex mt-5">
       <% @vehicles.each do |vehicle| %>
         <div class="col-3">
-          <%= render "shared/vehicle_card", vehicle: vehicle%>
+          <%= render "vehicles/vehicle_card", vehicle: vehicle%>
         </div>
       <% end %>
     </div>

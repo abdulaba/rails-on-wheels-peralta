@@ -20,9 +20,11 @@ class RentsController < ApplicationController
     @rent.user = current_user
 
     if @rent.save
-      redirect_to rents_path(@rent), notice: 'Renta creada exitosamente.'
+      @vehicle.status = 1
+      @vehicle.save
+      redirect_to rent_path(@rent), notice: 'Renta creada exitosamente.'
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "no se pudo rentar el vehiculo"
     end
   end
 

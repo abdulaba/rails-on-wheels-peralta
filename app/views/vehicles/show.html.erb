@@ -39,12 +39,12 @@
           <%= link_to "", edit_vehicle_path(@vehicle), class: "p-2 text-decoration-none fa-solid fa-pencil text-warning" %>
           <%= link_to "", vehicle_path(@vehicle), class: "text-decoration-none text-danger fa-solid fa-trash", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           <div class="position-absolute bottom-0 w-100 pe-4 pb-3">
-            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "btn btn-primary text-white fw-bold p-2 rounded-4 w-100" %>
+            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "banner-button w-100 text-center" %>
           </div>
         <% else %>
           <div class=" position-absolute bottom-0 w-100 pe-4 pb-3">
             <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts the rent.</p>
-            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100 rounded-4" %>
+            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "banner-button w-100 text-center" %>
           </div>
         <% end %>
       </div>

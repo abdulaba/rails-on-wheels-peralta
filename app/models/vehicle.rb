@@ -5,6 +5,10 @@ class Vehicle < ApplicationRecord
   # vehicles images
 
   has_many_attached :photos
+  enum status: {
+    "disponible": 0,
+    "rentado": 1
+  }
 
   validates :photos, :user, :vehicle_type, :price, :seats, :description, :make, :model, :year, presence: true
   validates :price, inclusion: { in: (1..10_000).to_a, message: "should be a number between 1 and 10,000" }

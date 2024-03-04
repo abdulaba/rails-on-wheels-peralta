@@ -4,6 +4,9 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = Vehicle.all
+    if params[:query].present?
+      @vehicles = Vehicle.search_by_mark_model_and_year(params[:query])
+    end
   end
 
   def my_vehicles

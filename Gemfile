@@ -84,3 +84,5 @@ gem 'devise'
 gem 'cloudinary'
 
 gem 'jquery-rails'
+
+gem "pg_search"

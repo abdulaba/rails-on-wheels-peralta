@@ -7,7 +7,7 @@
     <div class="row col-9 d-flex">
       <% @vehicles.each do |vehicle| %>
         <div class="col-4">
-          <%= render "shared/vehicle_card", vehicle: vehicle %>
+          <%= render "vehicle_card", vehicle: vehicle %>
         </div>
       <% end %>
     </div>

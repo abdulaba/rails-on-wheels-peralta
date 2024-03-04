@@ -7,6 +7,14 @@ class VehiclesController < ApplicationController
     if params[:query].present?
       @vehicles = Vehicle.search_by_mark_model_and_year(params[:query])
     end
+
+    if params[:min].present?
+      @vehicles = @vehicles.where("price >= #{params[:min]}")
+    end
+
+    if params[:max].present?
+      @vehicles = @vehicles.where("price <= #{params[:max]}")
+    end
   end
 
   def my_vehicles

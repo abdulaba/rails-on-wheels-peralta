@@ -84,3 +84,7 @@ gem 'devise'
 gem 'cloudinary'
 
 gem 'jquery-rails'
+
+# sweetalert
+
+gem 'sweetalert-rails'

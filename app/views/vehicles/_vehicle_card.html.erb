@@ -1,4 +1,4 @@
-<%= link_to vehicle_path(vehicle), class: "text-decoration-none text-black" do%>
+<%= link_to vehicle_path(vehicle), class: "text-decoration-none" do%>
   <div class="mb-3 p-2 card-vehicle">
     <% if vehicle.photos.attached? %>
       <%= cl_image_tag vehicle.photos[0].key, class: "w-100 object-fit-cover", height:150 %>

@@ -4,7 +4,8 @@
       <div class="col-6">
         <div class="avatar-xl d-flex justify-content-center align-items-center"
           style="background-image: url(<%= cl_image_path current_user.photo.key if current_user.photo.attached?%>)"
-          data-action = "click->user-photo#clickFileInput"
+          data-action = "click->user-photo#clickFileInput",
+          data-user-photo-target = "userImg"
         >
           <i class="fa-solid fa-pen fs-1" id="user-avatar"></i>
         </div>
@@ -59,7 +60,7 @@
             </div>
 
             <div class="d-none">
-              <%= f.input :photo, as: :file, input_html: { id: "user-avatar-input", "data-user-photo-target" => "fileInput" } %>
+              <%= f.input :photo, as: :file, input_html: { id: "user-avatar-input", "data-user-photo-target" => "fileInput", "data-action" => "input->user-photo#addPicture" } %>
             </div>
           </div>
 

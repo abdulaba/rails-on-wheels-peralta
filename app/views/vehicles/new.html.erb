@@ -1,5 +1,5 @@
 <div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
-  <%= simple_form_for @vehicle do |f| %>
+  <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } } do |f| %>
     <%= f.input :make %>
     <%= f.input :model %>
     <%= f.input :year %>

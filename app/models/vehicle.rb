@@ -6,6 +6,15 @@ class Vehicle < ApplicationRecord
 
   has_many_attached :photos
 
+  # pg search
+
+  include PgSearch::Model
+  pg_search_scope :search_by_mark_model_and_year,
+                  against: %i[make model year vehicle_type],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
   validates :photos, :user, :vehicle_type, :price, :seats, :description, :make, :model, :year, presence: true
   validates :price, inclusion: { in: (1..10_000).to_a, message: "should be a number between 1 and 10,000" }
   validates :seats, inclusion: { in: (1..50).to_a, message: "should be a number between 1 and 50" }

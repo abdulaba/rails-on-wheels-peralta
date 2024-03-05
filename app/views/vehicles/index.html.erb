@@ -1,12 +1,19 @@
 <div class="container mt-3 mb-5">
   <div class="row">
     <div class="col-3">
-      <h3>Filter</h3>
+      <%= form_with url: vehicles_path, method: :get, class: "d-flex flex-column sticky-top pt-3" do |f|%>
+        <%= text_field_tag :query, params[:query], class: "d-none", value: params[:query] if params[:query].present? %>
+        <%= label_tag "Precio minimo" %>
+        <%= number_field_tag :min, params[:min]%>
+        <%= label_tag "Precio máximo" %>
+        <%= number_field_tag :max, params[:max]%>
+        <%= submit_tag "Buscar", class: "banner-button w-100 mt-2 m-auto border-0" %>
+      <% end %>
     </div>
     <div class="row col-9 d-flex">
       <% @vehicles.each do |vehicle| %>
         <div class="col-4">
-            <%= render "shared/vehicle_card", vehicle: vehicle%>
+            <%= render "vehicle_card", vehicle: vehicle%>
         </div>
       <% end %>
     </div>

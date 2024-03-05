@@ -26,25 +26,26 @@
       </div>
     </div>
 
-    <div class="col position-relative">
+    <div class="col position-relative" data-controller="delete-alert">
       <div class="p-3 position-relative h-100">
         <h3 class="fw-bold"><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
-        <p class="m-0 p-0 fs-5"><span class="fw-bold">$<%= @vehicle.price %></span> per day</p>
-        <h4 class="mt-3">Vehicle description</h4>
+        <p class="m-0 p-0 fs-5"><span class="fw-bold">$<%= @vehicle.price %></span> por día</p>
+        <h4 class="mt-3">Descripción del vehículo</h4>
         <p><%= @vehicle.description %></p>
-        <p class="m-0 p-0"><span class="text-secondary">Seats:</span> <%= @vehicle.seats %></p>
-        <p class="m-0 p-0"><span class="text-secondary">Owner:</span> <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %> (<span class="fw-bold"><%= @vehicle.user.nickname %></span>)</p>
+        <p class="m-0 p-0"><span class="text-secondary">Asientos:</span> <%= @vehicle.seats %></p>
+        <p class="m-0 p-0"><span class="text-secondary">Dueño:</span> <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %> (<span class="fw-bold"><%= @vehicle.user.nickname %></span>)</p>
 
         <% if current_user == @vehicle.user %>
           <%= link_to "", edit_vehicle_path(@vehicle), class: "p-2 text-decoration-none fa-solid fa-pencil text-warning" %>
-          <%= link_to "", vehicle_path(@vehicle), class: "text-decoration-none text-danger fa-solid fa-trash", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <i class="text-decoration-none text-danger fa-solid fa-trash" data-action="click->delete-alert#confirm"></i>
+          <%= link_to "", vehicle_path(@vehicle), class: "d-none", data: { turbo_method: :delete, "delete-alert-target"=>"delete" } %>
           <div class="position-absolute bottom-0 w-100 pe-4 pb-3">
-            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "btn btn-primary text-white fw-bold p-2 rounded-4 w-100" %>
+            <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "banner-button w-100 text-center" %>
           </div>
         <% else %>
           <div class=" position-absolute bottom-0 w-100 pe-4 pb-3">
-            <p class="text-secondary fst-italic disclaimer m-0 p-0">Contact information will be provided after the owner accepts the rent.</p>
-            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "btn btn-primary fw-bold w-100 rounded-4" %>
+            <p class="text-secondary fst-italic disclaimer m-0 p-0">La información de contacto se dará al concretar la renta.</p>
+            <%= link_to "Rentar ahora", new_vehicle_rent_path(@vehicle), class: "banner-button w-100 text-center" %>
           </div>
         <% end %>
       </div>

@@ -14,24 +14,24 @@
             <h3 class="card-title fw-bold">Rentar <%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
 
             <p class="fs-6 fw-bold">Información del vehículo:</p>
-            <p class="fs-6 text">Make: <%= @vehicle.make %></p>
-            <p class="fs-6 text">Model: <%= @vehicle.model %></p>
-            <p class="fs-6 text">Year: <%= @vehicle.year %></p>
+            <p class="fs-6 text"><span class="text-secondary">Marca:</span> <%= @vehicle.make %></p>
+            <p class="fs-6 text"><span class="text-secondary">Modelo:</span> <%= @vehicle.model %></p>
+            <p class="fs-6 text"><span class="text-secondary">Año:</span> <%= @vehicle.year %></p>
           </div>
 
           <%= form_with(model: [@vehicle, @rent], method: :post, local: true) do |form| %>
             <div class="mb-3">
   <%= form.label :start_date, "Fecha de inicio", class: 'form-label fs-6 text-secondary' %>
-  <%= form.date_field :start_date, class: 'form-control form-control-sm', placeholder: 'Selecciona la fecha de inicio', min: Date.current.to_s %>
+  <%= form.date_field :start_date, class: 'form-control form-control-sm form-input-dark', placeholder: 'Selecciona la fecha de inicio', min: Date.current.to_s %>
 </div>
 
 <div class="mb-3">
-  <%= form.label :end_date, "Fecha de fin", class: 'form-label fs-6 text-secondary' %>
-  <%= form.date_field :end_date, class: 'form-control form-control-sm', placeholder: 'Selecciona la fecha de fin', min: @rent&.start_date.to_s, onChange: 'validateEndDate()' %>
+  <%= form.label :end_date, "Fecha final", class: 'form-label fs-6 text-secondary' %>
+  <%= form.date_field :end_date, class: 'form-control form-control-sm', placeholder: 'Selecciona la fecha final', min: @rent&.start_date.to_s, onChange: 'validateEndDate()' %>
 </div>
 
 <div class="button-new">
-  <%= form.submit "Rentar", class: "btn btn-primary btn-sm rounded-pill w-100" %>
+  <%= form.submit "Rentar", class: "banner-button w-100 border-0" %>
 </div>
 <% end %>
 </div>

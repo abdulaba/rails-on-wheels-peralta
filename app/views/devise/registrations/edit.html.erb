@@ -8,7 +8,7 @@
         >
           <i class="fa-solid fa-pen fs-1" id="user-avatar"></i>
         </div>
-        <div class="mt-3"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger text-white rounded" %></div>
+        <div class="mt-3"><%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger text-white rounded" %></div>
       </div>
       <div class="col-6">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, defaults: { input_html: { class: 'form-input-dark' } }) do |f| %>
@@ -24,37 +24,38 @@
             <% end %>
 
             <div class="col-6">
-              <%= f.input :first_name %>
+              <%= f.input :first_name, label: "Nombre" %>
             </div>
             <div class="col-6">
-              <%= f.input :last_name %>
+              <%= f.input :last_name, label: "Apellido" %>
             </div>
 
             <div class="col-12">
-              <%= f.input :nickname %>
+              <%= f.input :nickname, label: "Nombre de usuario" %>
             </div>
 
             <div class="col-6">
               <%= f.input :password,
-                          hint: "leave it blank if you don't want to change it",
                           required: false,
-                          input_html: { autocomplete: "new-password" } %>
+                          input_html: { autocomplete: "new-password" },
+                          label: "Contraseña" %>
             </div>
             <div class="col-6">
               <%= f.input :password_confirmation,
                           required: false,
-                          input_html: { autocomplete: "new-password" } %>
+                          input_html: { autocomplete: "new-password" },
+                          label: "Confirmar contraseña" %>
             </div>
 
             <div class="col-12">
-              <%= f.input :phone_number %>
+              <%= f.input :phone_number, label: "Número de teléfono" %>
             </div>
 
             <div class="col-12">
               <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "current-password" },
+                label: "Contraseña actual" %>
             </div>
 
             <div class="d-none">
@@ -63,11 +64,11 @@
           </div>
 
           <div class="form-actions col-12">
-            <%= f.button :submit, "Update", class: "btn banner-button w-100"%>
+            <%= f.button :submit, "Actualizar", class: "btn banner-button w-100"%>
           </div>
         <% end %>
 
-        <%= link_to "Back", :back %>
+        <%= link_to "Volver", :back %>
       </div>
     </div>
 </div>

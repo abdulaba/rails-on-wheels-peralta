@@ -1,11 +1,14 @@
 <div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
-  <%= simple_form_for @vehicle do |f| %>
+  <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } }, data: {controller: "char-counter"} do |f| %>
     <%= f.input :make %>
     <%= f.input :model %>
     <%= f.input :year %>
     <%= f.input :price %>
     <%= f.input :seats %>
-    <%= f.input :description %>
+    <%= f.input :description, as: :text, input_html: {
+      data: {action: "char-counter#count", "char-counter-target"=>"text"}
+    } %>
+    <small><p data-char-counter-target = "charCount"></p></small>
     <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["Suv", "suv"], ["Motorbike", "motorbike"], ["Rv", "rv"], ["Van", "van"], ["Bus", "bus"]] %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit value: "Publish vehicle", class: "banner-button w-100 text-center"%>

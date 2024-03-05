@@ -1,15 +1,32 @@
-<div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
-  <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } }, data: {controller: "char-counter"} do |f| %>
-    <%= f.input :price, hint: "Por favor inserta un precio $1 y $10,000", label: "Precio"%>
-    <%= f.input :description, as: :text, label: "Descripción", input_html: {
-      data: {action: "char-counter#count", "char-counter-target"=>"text"}
-    } %>
-    <small><p data-char-counter-target = "charCount"></p></small>
-    <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["SUV", "suv"], ["Motorbike", "motorbike"], ["RV", "rv"], ["Van", "van"], ["Bus", "bus"]], hint: "Escoge el tipo de vehículo", label: "Tipo de vehículo" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, direct_upload: true  %>
+<div class="container">
+<div class="row mt-3" data-controller = "gallery">
+  <div class="col-6 row" data-gallery-target = "gallery">
+    <div style = "width: 150px; height: 150px"
+      class="col bg-secondary d-flex align-items-center justify-content-center"
+      data-gallery-target = "addButton"
+      data-action = "click->gallery#clickFileInput">
+      <i class="fa-solid fa-plus fs-1"></i></div>
+
     <% @vehicle.photos.each do |photo| %>
-      <%= f.hidden_field :photos, multiple: true, value: photo.signed_id %>
+      <div class="col">
+        <%= cl_image_tag photo.key, class: "uploaded-image object-fit-cover", data: { action: "click->gallery#deletePicture", signedId: "#{photo.signed_id}" }%>
+      </div>
     <% end %>
-    <%= f.submit value: "Editar vehículo", class: "btn banner-button w-100"%>
-  <% end %>
+  </div>
+  <div class="shadow p-4 rounded-4 col-6">
+    <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } }, data: {controller: "char-counter"} do |f| %>
+      <%= f.input :price, hint: "Por favor inserta un precio $1 y $10,000", label: "Precio"%>
+      <%= f.input :description, as: :text, label: "Descripción", input_html: {
+        data: {action: "char-counter#count", "char-counter-target"=>"text"}
+      } %>
+      <small><p data-char-counter-target = "charCount"></p></small>
+      <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["SUV", "suv"], ["Motorbike", "motorbike"], ["RV", "rv"], ["Van", "van"], ["Bus", "bus"]], hint: "Escoge el tipo de vehículo", label: "Tipo de vehículo" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, "data-gallery-target" => "fileInput", "data-action" => "input->gallery#addPicture" }, direct_upload: true  %>
+      <% @vehicle.photos.each do |photo| %>
+        <%= f.hidden_field :photos, multiple: true, value: photo.signed_id %>
+      <% end %>
+      <%= f.submit value: "Editar vehículo", class: "btn banner-button w-100"%>
+    <% end %>
+  </div>
+</div>
 </div>

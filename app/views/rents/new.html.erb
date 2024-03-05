@@ -22,12 +22,12 @@
           <%= form_with(model: [@vehicle, @rent], method: :post, local: true) do |form| %>
             <div class="mb-3">
   <%= form.label :start_date, "Fecha de inicio", class: 'form-label fs-6 text-secondary' %>
-  <%= form.date_field :start_date, class: 'form-control form-control-sm', placeholder: 'Selecciona la fecha de inicio', min: Date.current.to_s %>
+  <%= form.date_field :start_date, class: 'form-control form-control-sm form-input-dark', placeholder: 'Selecciona la fecha de inicio', min: Date.current.to_s %>
 </div>
 
 <div class="mb-3">
   <%= form.label :end_date, "Fecha de fin", class: 'form-label fs-6 text-secondary' %>
-  <%= form.date_field :end_date, class: 'form-control form-control-sm', placeholder: 'Selecciona la fecha de fin', min: @rent&.start_date.to_s, onChange: 'validateEndDate()' %>
+  <%= form.date_field :end_date, class: 'form-control form-control-sm form-input-dark', placeholder: 'Selecciona la fecha de fin', min: @rent&.start_date.to_s, onChange: 'validateEndDate()' %>
 </div>
 
 <div class="button-new">

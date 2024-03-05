@@ -3,7 +3,7 @@
 
   <div class="container d-flex justify-content-center mb-5">
   <div class="w-50 form-difuse mt-3">
-    <h2>Sign up</h2>
+    <h2>Registrarse</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -11,14 +11,14 @@
       <div class="form-inputs row">
 
         <div class="col-6">
-          <%= f.input :first_name %>
+          <%= f.input :first_name, label: "Nombre" %>
         </div>
         <div class="col-6">
-          <%= f.input :last_name %>
+          <%= f.input :last_name, label: "Apellido" %>
         </div>
 
         <div class="col-12">
-          <%= f.input :phone_number %>
+          <%= f.input :phone_number, label: "Número de teléfono" %>
         </div>
 
 
@@ -29,24 +29,26 @@
                       input_html: { autocomplete: "email" }%>
         </div>
         <div class="col-6">
-          <%= f.input :nickname %>
+          <%= f.input :nickname, label: "Nombre de usuario" %>
         </div>
 
         <div class="col-6">
           <%= f.input :password,
                       required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+                      hint: ("#{@minimum_password_length} caracteres minimo" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" },
+                      label: "Contraseña" %>
         </div>
         <div class="col-6">
           <%= f.input :password_confirmation,
             required: true,
-            input_html: { autocomplete: "new-password" } %>
+            input_html: { autocomplete: "new-password" },
+            label: "Confirmar contraseña" %>
         </div>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: "banner-button w-100" %>
+        <%= f.button :submit, "Registrarse", class: "banner-button w-100" %>
       </div>
     <% end %>
 

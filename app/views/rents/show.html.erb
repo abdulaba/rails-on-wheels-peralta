@@ -5,7 +5,7 @@
         <div class="carousel-inner d-flex align-items-center">
           <% @rent.vehicle.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= image_tag photo.url, class: 'd-block w-100', alt: "Vehicle Image" %>
+              <%= cl_image_tag photo.key, class: 'd-block w-100 carousel-img object-fit-cover', alt: "Vehicle Image" %>
             </div>
           <% end %>
         </div>

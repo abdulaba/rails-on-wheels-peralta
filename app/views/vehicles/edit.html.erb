@@ -6,7 +6,8 @@
     } %>
     <small><p data-char-counter-target = "charCount"></p></small>
     <%= f.input :vehicle_type, as: :radio_buttons, collection: [["Coupe", "coupe"], ["Sedan", "sedan"], ["SUV", "suv"], ["Motorbike", "motorbike"], ["RV", "rv"], ["Van", "van"], ["Bus", "bus"]], hint: "Escoge el tipo de vehículo", label: "Tipo de vehículo" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, required: false  %>
+    <%= f.hidden_field :photos, value: @vehicle.photos if @vehicle.photos.attached? %>
     <%= f.submit value: "Editar vehículo", class: "btn banner-button w-100"%>
   <% end %>
 </div>

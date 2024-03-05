@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="col position-relative">
+    <div class="col position-relative" data-controller="delete-alert">
       <div class="p-3 position-relative h-100">
         <h3 class="fw-bold"><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h3>
         <p class="m-0 p-0 fs-5"><span class="fw-bold">$<%= @vehicle.price %></span> per day</p>
@@ -37,7 +37,8 @@
 
         <% if current_user == @vehicle.user %>
           <%= link_to "", edit_vehicle_path(@vehicle), class: "p-2 text-decoration-none fa-solid fa-pencil text-warning" %>
-          <%= link_to "", vehicle_path(@vehicle), class: "text-decoration-none text-danger fa-solid fa-trash", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <i class="text-decoration-none text-danger fa-solid fa-trash" data-action="click->delete-alert#confirm"></i>
+          <%= link_to "", vehicle_path(@vehicle), class: "d-none", data: { turbo_method: :delete, "delete-alert-target"=>"delete" } %>
           <div class="position-absolute bottom-0 w-100 pe-4 pb-3">
             <%= link_to "View rents", vehicle_rents_path(@vehicle), class: "banner-button w-100 text-center" %>
           </div>

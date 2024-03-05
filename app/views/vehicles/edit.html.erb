@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class="shadow p-4 rounded-4 col-6">
-      <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } }, data: {controller: "char-counter"} do |f| %>
+      <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' }, hint_html: { class: 'text-white' } }, data: {controller: "char-counter"} do |f| %>
         <%= f.input :price, hint: "Por favor inserta un precio $1 y $10,000", label: "Precio"%>
         <%= f.input :description, as: :text, label: "Descripción", input_html: {
           data: {action: "char-counter#count", "char-counter-target"=>"text"}

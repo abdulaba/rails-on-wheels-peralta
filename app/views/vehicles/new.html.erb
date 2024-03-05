@@ -1,5 +1,5 @@
 <div class="w-50 m-auto mt-3 mb-5 shadow p-4 rounded-4">
-  <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' } }, data: {controller: "char-counter"} do |f| %>
+  <%= simple_form_for @vehicle, defaults: { input_html: { class: 'form-input-dark' }, hint_html: { class: 'text-white' } }, data: {controller: "char-counter"} do |f| %>
     <%= f.input :make, label: "Marca" %>
     <%= f.input :model, label: "Modelo" %>
     <%= f.input :year, label: "Año" %>
@@ -7,7 +7,7 @@
     <%= f.input :seats, label: "Asientos" %>
     <%= f.input :description, as: :text, label: "Descripción", input_html: {
       data: {action: "char-counter#count", "char-counter-target"=>"text"}
-    } %>
+    }, hint: "minimo 50 caracteres y maximo 120 caracteres" %>
     <small><p data-char-counter-target = "charCount"></p></small>
     <%= f.input :vehicle_type,
       as: :radio_buttons,

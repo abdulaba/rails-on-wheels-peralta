@@ -20,7 +20,7 @@ class RentsController < ApplicationController
     @rent.user = current_user
 
     if @rent.save
-      redirect_to rents_path(@rent), notice: 'Renta creada exitosamente.'
+      redirect_to rent_path(@rent), notice: 'Renta creada exitosamente.'
     else
       render :new, status: :unprocessable_entity
     end
